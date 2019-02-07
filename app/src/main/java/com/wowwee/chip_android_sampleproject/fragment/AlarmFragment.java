@@ -24,6 +24,7 @@ import com.wowwee.chip_android_sampleproject.utils.FragmentHelper;
 import java.util.Calendar;
 
 /**
+ * This is a test for pushing and patching
  * Created by davidchan on 22/3/2017.
  */
 
