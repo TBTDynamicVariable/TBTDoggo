@@ -1,7 +1,7 @@
 package com.wowwee.chip_android_sampleproject;
 
 import android.bluetooth.BluetoothAdapter;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
 
@@ -13,7 +13,7 @@ import com.wowwee.chip_android_sampleproject.utils.FragmentHelper;
 
 import java.util.List;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
