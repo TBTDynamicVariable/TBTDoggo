@@ -15,7 +15,7 @@
             android:id="@+id/plot"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            class="github.bewantbe.audio_analyzer_for_android.AnalyzerGraphic" />
+            class="com.wowwee.chip_android_sampleproject.AudioAnalyzer.AnalyzerGraphic" />
 
         <LinearLayout
             android:layout_width="wrap_content"

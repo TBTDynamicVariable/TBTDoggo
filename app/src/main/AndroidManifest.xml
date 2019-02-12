@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    :tools="http://schemas.android.com/tools"
     package="com.wowwee.chip_android_sampleproject"
     android:versionCode="20180111"
     android:versionName="1.7.0alpha"
@@ -43,10 +44,13 @@
             android:name="com.wowwee.chip_android_sampleproject.AudioAnalyzer.MyPreferences"
             android:label="@string/preferences" >
         </activity>
+        <activity android:name=".AudioAnalyzer.AnalyzerActivity"
+            android:label="AnalyzerActivity"
+            ></activity>
         <activity
             android:name="com.wowwee.chip_android_sampleproject.AudioAnalyzer.InfoRecActivity"
             android:label="@string/title_activity_info_rec"
-            android:parentActivityName="com.wowwee.chip_android_sampleproject.AudioAnalyzer.AnalyzerActivity" >
+            android:parentActivityName="com.wowwee.chip_android_sampleproject.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.wowwee.chip_android_sampleproject.AudioAnalyzer.AnalyzerActivity" />

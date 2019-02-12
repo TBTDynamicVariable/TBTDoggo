@@ -30,6 +30,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
+import com.wowwee.chip_android_sampleproject.R;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

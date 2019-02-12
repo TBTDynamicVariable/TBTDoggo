@@ -27,6 +27,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.wowwee.chip_android_sampleproject.R;
+
 import java.util.ArrayList;
 
 // Test all (including unknown) recorder sources by open it and read data.

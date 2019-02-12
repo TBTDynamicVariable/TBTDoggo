@@ -55,12 +55,14 @@ import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.wowwee.chip_android_sampleproject.R;
+
 /**
  * Audio "FFT" analyzer.
  * @author suhler@google.com (Stephen Uhler)
  */
 
-public class AnalyzerActivity extends Activity          // AnalyzerActivity is directly linked to AnalyzerGraphic.Readyghbnnn
+public class AnalyzerActivity extends Activity          // AnalyzerActivity is directly linked to AnalyzerGraphic.Ready
     implements OnLongClickListener, OnClickListener,
                OnItemClickListener, AnalyzerGraphic.Ready
 {
