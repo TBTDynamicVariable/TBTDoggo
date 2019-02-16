@@ -90,12 +90,14 @@ class AnalyzerViews {
 
         /// initialize pop up window items list
         // http://www.codeofaninja.com/2013/04/show-listview-as-drop-down-android.html
-        popupMenuSampleRate = popupMenuCreate( AnalyzerUtil.validateAudioRates(
-                res.getStringArray(R.array.sample_rates)), R.id.button_sample_rate);
-        popupMenuFFTLen = popupMenuCreate(
-                res.getStringArray(R.array.fft_len), R.id.button_fftlen);
-        popupMenuAverage = popupMenuCreate(
-                res.getStringArray(R.array.fft_ave_num), R.id.button_average);
+
+        //popupMenuSampleRate = popupMenuCreate( AnalyzerUtil.validateAudioRates(
+          //      res.getStringArray(R.array.sample_rates)), R.id.button_sample_rate);
+        //popupMenuFFTLen = popupMenuCreate(
+         //       res.getStringArray(R.array.fft_len), R.id.button_fftlen);
+        //popupMenuAverage = popupMenuCreate(
+          //      res.getStringArray(R.array.fft_ave_num), R.id.button_average);
+
 
         //setTextViewFontSize();
     }
@@ -164,9 +166,9 @@ class AnalyzerViews {
             @Override
             public void run() {
                 // data will get out of synchronize here
-                invalidateGraphView(AnalyzerViews.VIEW_MASK_RecTimeLable);
+               // invalidateGraphView(AnalyzerViews.VIEW_MASK_RecTimeLable);
             }
-        });
+        });//invalidateGraphView();
     }
 
     void notifyWAVSaved(final String path) {
@@ -286,7 +288,7 @@ class AnalyzerViews {
                 break;
         }
     }
-
+/*
     // Maybe put this PopupWindow into a class
     private PopupWindow popupMenuCreate(String[] popUpContents, int resId) {
 
@@ -347,7 +349,7 @@ class AnalyzerViews {
 
         return popupWindow;
     }
-
+*/
     /*
      * adapter where the list values will be set
      */
@@ -446,10 +448,10 @@ class AnalyzerViews {
     private volatile boolean isInvalidating = false;
 
     // Invalidate graphView in a limited frame rate
-    void invalidateGraphView() {
+    /*void invalidateGraphView() {
         invalidateGraphView(-1);
     }
-
+*/
     private static final int VIEW_MASK_graphView     = 1<<0;
     private static final int VIEW_MASK_textview_RMS  = 1<<1;
     private static final int VIEW_MASK_textview_peak = 1<<2;
@@ -517,7 +519,7 @@ class AnalyzerViews {
         public void run() {
             if (idPaddingInvalidate) {
                 // It is possible that t-timeToUpdate <= 0 here, don't know why
-                invalidateGraphView(paddingViewMask);
+                //invalidateGraphView(paddingViewMask);
             }
         }
     };
