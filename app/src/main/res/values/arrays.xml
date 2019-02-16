@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="dbColorMapDescribe" translatable="false">
+    <string-array name="dbColorMapDescribe">
         <item>Hot</item>
         <item>Black-body</item>
         <item>Jet</item>
@@ -12,8 +12,8 @@
         <item>plasma (Matplotlib)</item>
         <item>viridis (Matplotlib)</item>
     </string-array>
-    <string name="dbColorMap_default" translatable="false">viridis</string>
-    <string-array name="dbColorMap" translatable="false">
+    <string name="dbColorMap_default">viridis</string>
+    <string-array name="dbColorMap">
         <item>hot</item>
         <item>blackbody_uniform</item>
         <item>jet</item>
@@ -24,25 +24,25 @@
         <item>plasma</item>
         <item>viridis</item>
     </string-array>
-    <string name="spectrum_dbRange_default" translatable="false">-120</string>
-    <string name="spectrogram_dbRange_default" translatable="false">-120</string>
-    <string-array name="dbRangeArray" translatable="false">
+    <string name="spectrum_dbRange_default">-120</string>
+    <string name="spectrogram_dbRange_default">-120</string>
+    <string-array name="dbRangeArray">
         <item>-30</item>
         <item>-60</item>
         <item>-90</item>
         <item>-120</item>
         <item>-150</item>
     </string-array>
-    <string name="spectrogram_duration_default" translatable="false">6.0</string>
-    <string-array name="spectrogram_duration_array" translatable="false">
+    <string name="spectrogram_duration_default">6.0</string>
+    <string-array name="spectrogram_duration_array">
         <item>2.0</item>
         <item>4.0</item>
         <item>6.0</item>
         <item>8.0</item>
         <item>10.0</item>
     </string-array>
-    <string name="spectrogram_fps_default" translatable="false">8</string>
-    <string-array name="spectrogram_fps_array" translatable="false">
+    <string name="spectrogram_fps_default">8</string>
+    <string-array name="spectrogram_fps_array">
         <item>8</item>
         <item>12</item>
         <item>18</item>
@@ -50,8 +50,8 @@
         <item>40</item>
         <item>60</item>
     </string-array>
-    <string name="wnd_func_default" translatable="false">Hanning</string>
-    <string-array name="wnd_func_names" translatable="false">
+    <string name="wnd_func_default">Hanning</string>
+    <string-array name="wnd_func_names">
         <item>Rectangular</item>
         <item>Bartlett</item>
         <item>Hanning</item>
@@ -68,20 +68,20 @@
         <item>Gaussian, b=7.0</item>
         <item>Gaussian, b=8.0</item>
     </string-array>
-    <string-array name="fft_overlap_percent_describe" translatable="false">
+    <string-array name="fft_overlap_percent_describe">
         <item>0%</item>
         <item>50%</item>
         <item>75%</item>
         <item>87.5%</item>
     </string-array>
-    <string-array name="fft_overlap_percent" translatable="false">
+    <string-array name="fft_overlap_percent">
         <item>0.0</item>
         <item>50.0</item>
         <item>75.0</item>
         <item>87.5</item>
     </string-array>
-    <string name="fft_overlap_percent_default" translatable="false">0.0</string>
-    <string-array name="audio_source" translatable="false">
+    <string name="fft_overlap_percent_default">0.0</string>
+    <string-array name="audio_source">
         <item>VOICE_RECOGNITION</item>
         <item>DEFAULT</item>
         <item>MIC</item>
@@ -93,7 +93,7 @@
         <item>test signal 2\n\t 625Hz @ -6dB\n +1875Hz @ -12dB</item>
         <item>white noise</item>
     </string-array>
-    <string-array name="audio_source_id" translatable="false">
+    <string-array name="audio_source_id">
         <item>6</item>
         <item>0</item>
         <item>1</item>
@@ -105,9 +105,9 @@
         <item>1001</item>
         <item>1002</item>
     </string-array>
-    <string name="audio_source_id_default" translatable="false">6</string>
+    <string name="audio_source_id_default">6</string>
 
-    <string-array name="sample_rates" translatable="false">
+    <string-array name="sample_rates">
         <item>@string/sample_rates_name</item>
         <item>16000::16000</item>
         <item>8000::8000</item>
@@ -120,7 +120,7 @@
         <item>192k::192000</item>
     </string-array>
 
-    <string-array name="fft_len" translatable="false">
+    <string-array name="fft_len">
         <item>@string/fft_len_name</item>
         <item>512::512</item>
         <item>1024::1024</item>
@@ -129,7 +129,7 @@
         <item>8192::8192</item>
         <item>16384::16384</item>
     </string-array>
-    <string-array name="fft_ave_num" translatable="false">
+    <string-array name="fft_ave_num">
         <item>@string/fft_ave_num_name</item>
         <item>1::1</item>
         <item>2::2</item>

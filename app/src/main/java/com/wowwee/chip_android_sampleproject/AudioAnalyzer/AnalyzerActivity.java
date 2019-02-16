@@ -63,7 +63,7 @@ import com.wowwee.chip_android_sampleproject.R;
  */
 
 public class AnalyzerActivity extends Activity          // AnalyzerActivity is directly linked to AnalyzerGraphic.Ready
-    implements OnLongClickListener, OnClickListener,
+    implements OnLongClickListener, OnClickListener
               // OnItemClickListener, AnalyzerGraphic.Ready
 {
     private static final String TAG="AnalyzerActivity:";
@@ -188,12 +188,12 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
         maxAmpFreq  = savedInstanceState.getDouble("maxAmpFreq");
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.info, menu);
         return true;
-    }
+    }*/
 
     static final int REQUEST_AUDIO_GET = 1;
     static final int REQUEST_CALIB_LOAD = 2;
@@ -258,7 +258,7 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
     public final static String MYPREFERENCES_MSG_SOURCE_ID = "AnalyzerActivity.SOURCE_ID";
     public final static String MYPREFERENCES_MSG_SOURCE_NAME = "AnalyzerActivity.SOURCE_NAME";
 
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Log.i(TAG, "onOptionsItemSelected(): " + item.toString());
         switch (item.getItemId()) {
@@ -283,7 +283,7 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
+    }*/
 
     // Popup menu click listener
     // Read chosen preference, save the preference, set the state.
