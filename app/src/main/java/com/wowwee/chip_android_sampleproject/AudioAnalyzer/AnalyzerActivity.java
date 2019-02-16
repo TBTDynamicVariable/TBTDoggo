@@ -63,7 +63,7 @@ import com.wowwee.chip_android_sampleproject.R;
  */
 
 public class AnalyzerActivity extends Activity          // AnalyzerActivity is directly linked to AnalyzerGraphic.Ready
-    implements OnLongClickListener, OnClickListener
+ //   implements OnLongClickListener, OnClickListener
               // OnItemClickListener, AnalyzerGraphic.Ready
 {
     private static final String TAG="AnalyzerActivity:";
@@ -258,6 +258,7 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
     public final static String MYPREFERENCES_MSG_SOURCE_ID = "AnalyzerActivity.SOURCE_ID";
     public final static String MYPREFERENCES_MSG_SOURCE_NAME = "AnalyzerActivity.SOURCE_NAME";
 
+
     /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Log.i(TAG, "onOptionsItemSelected(): " + item.toString());
@@ -282,13 +283,16 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
                 selectFile(REQUEST_CALIB_LOAD);
             default:
                 return super.onOptionsItemSelected(item);
-        }
+       }
     }*/
+
 
     // Popup menu click listener
     // Read chosen preference, save the preference, set the state.
-    @Override
-    public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+
+
+    //TODO: Function might be useful
+    /*public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
         // get the tag, which is the value we are going to use
         String selectedItemTag = v.getTag().toString();
         // if tag() is "0" then do not update anything (it is a title)
@@ -310,14 +314,14 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
         SharedPreferences.Editor editor = sharedPref.edit();
 
         // so change of sample rate do not change view range
-        if (! isLockViewRange) {
+        *//*if (! isLockViewRange) {
             viewRangeArray = analyzerViews.graphView.getViewPhysicalRange();
             // if range is align at boundary, extend the range.
             Log.i(TAG, "set sampling rate:a " + viewRangeArray[0] + " ==? " + viewRangeArray[6]);
             if (viewRangeArray[0] == viewRangeArray[6]) {
                 viewRangeArray[0] = 0;
             }
-        }
+        }*//*
 
         // dismiss the pop up
         switch (buttonId) {
@@ -361,7 +365,7 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
         if (b_need_restart_audio) {
             restartSampling(analyzerParam);
         }
-    }
+    }*/
 
     // Load preferences for Views
     // When this function is called, the SamplingLoop must not running in the meanwhile.
@@ -374,7 +378,7 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
         analyzerParam.nFFTAverage  = sharedPref.getInt("button_average",        1);
         // toggle-buttons
         analyzerParam.isAWeighting = sharedPref.getBoolean("dbA", false);
-        if (analyzerParam.isAWeighting) {
+        /*if (analyzerParam.isAWeighting) {
             ((SelectorText) findViewById(R.id.dbA)).nextValue();
         }
         boolean isSpam = sharedPref.getBoolean("spectrum_spectrogram_mode", true);
@@ -383,15 +387,15 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
         }
         String axisMode = sharedPref.getString("freq_scaling_mode", "linear");
         SelectorText st = (SelectorText) findViewById(R.id.freq_scaling_mode);
-        st.setValue(axisMode);
+        st.setValue(axisMode);*/
 
         Log.i(TAG, "loadPreferenceForView():"+
                 "\n  sampleRate  = " + analyzerParam.sampleRate +
                 "\n  fftLen      = " + analyzerParam.fftLen +
                 "\n  nFFTAverage = " + analyzerParam.nFFTAverage);
-        ((Button) findViewById(R.id.button_sample_rate)).setText(Integer.toString(analyzerParam.sampleRate));
+        /*((Button) findViewById(R.id.button_sample_rate)).setText(Integer.toString(analyzerParam.sampleRate));
         ((Button) findViewById(R.id.button_fftlen     )).setText(Integer.toString(analyzerParam.fftLen));
-        ((Button) findViewById(R.id.button_average    )).setText(Integer.toString(analyzerParam.nFFTAverage));
+        ((Button) findViewById(R.id.button_average    )).setText(Integer.toString(analyzerParam.nFFTAverage));*/
     }
 
     private void LoadPreferences() {
@@ -414,14 +418,14 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
 
         // Settings of graph view
         // spectrum
-        analyzerViews.graphView.setShowLines( sharedPref.getBoolean("showLines", false) );
+        //analyzerViews.graphView.setShowLines( sharedPref.getBoolean("showLines", false) );
         // set spectrum show range
-        analyzerViews.graphView.setSpectrumDBLowerBound(
-                Float.parseFloat(sharedPref.getString("spectrumRange", Double.toString(AnalyzerGraphic.minDB)))
-        );
+        //analyzerViews.graphView.setSpectrumDBLowerBound(
+                //Float.parseFloat(sharedPref.getString("spectrumRange", Double.toString(AnalyzerGraphic.minDB)))
+        //);
 
         // spectrogram
-        analyzerViews.graphView.setSpectrogramModeShifting(sharedPref.getBoolean("spectrogramShifting", false));
+        /*analyzerViews.graphView.setSpectrogramModeShifting(sharedPref.getBoolean("spectrogramShifting", false));
         analyzerViews.graphView.setShowTimeAxis           (sharedPref.getBoolean("spectrogramTimeAxis", true));
         analyzerViews.graphView.setShowFreqAlongX         (sharedPref.getBoolean("spectrogramShowFreqAlongX", true));
         analyzerViews.graphView.setSmoothRender           (sharedPref.getBoolean("spectrogramSmoothRender", false));
@@ -430,23 +434,23 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
         analyzerViews.graphView.setSpectrogramDBLowerBound(Float.parseFloat(
                 sharedPref.getString("spectrogramRange", Double.toString(analyzerViews.graphView.spectrogramPlot.spectrogramBMP.dBLowerBound))));
         analyzerViews.graphView.setLogAxisMode(
-                sharedPref.getBoolean("spectrogramLogPlotMethod", true));
+                sharedPref.getBoolean("spectrogramLogPlotMethod", true));*/
 
         analyzerViews.bWarnOverrun = sharedPref.getBoolean("warnOverrun", false);
         analyzerViews.setFpsLimit(Double.parseDouble(
                 sharedPref.getString("spectrogramFPS", getString(R.string.spectrogram_fps_default))));
 
         // Apply settings by travel the views with android:tag="select".
-        visit((ViewGroup) analyzerViews.graphView.getRootView(), new Visit() {
+        /*visit((ViewGroup) analyzerViews.graphView.getRootView(), new Visit() {
             @Override
             public void exec(View view) {
                 processClick(view);
             }
-        }, "select");
+        }, "select");*/
 
         // Get view range setting
         boolean isLock = sharedPref.getBoolean("view_range_lock", false);
-        if (isLock) {
+        /*if (isLock) {
             Log.i(TAG, "LoadPreferences(): isLocked");
             // Set view range and stick to measure mode
             double[] rr = new double[AnalyzerGraphic.VIEW_RANGE_DATA_LENGTH];
@@ -464,7 +468,7 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
             stickToMeasureMode();
         } else {
             stickToMeasureModeCancel();
-        }
+        }*/
     }
 
     void stickToMeasureMode() {
@@ -479,12 +483,12 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
         }
     }
 
-    private boolean isInGraphView(float x, float y) {
+   /* private boolean isInGraphView(float x, float y) {
         analyzerViews.graphView.getLocationInWindow(windowLocation);
         return x >= windowLocation[0] && y >= windowLocation[1] &&
                 x < windowLocation[0] + analyzerViews.graphView.getWidth() &&
                 y < windowLocation[1] + analyzerViews.graphView.getHeight();
-    }
+    }*/
 
     // Button processing
     public void showPopupMenu(View view) {
@@ -503,7 +507,7 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
             return true;
         }
 
-        @Override
+        /*@Override
         public void onLongPress(MotionEvent event) {
             if (isInGraphView(event.getX(0), event.getY(0))) {
                 if (!isMeasure) {  // go from "scale" mode to "cursor" mode
@@ -511,16 +515,16 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
                 }
             }
             measureEvent(event);  // force insert this event
-        }
+        }*/
 
-        @Override
+        /*@Override
         public boolean onDoubleTap(MotionEvent event) {
             if (!isMeasure) {
                 scaleEvent(event);            // ends scale mode
                 analyzerViews.graphView.resetViewScale();
             }
             return true;
-        }
+        }*/
 
         @Override
         public boolean onFling(MotionEvent event1, MotionEvent event2,
@@ -560,11 +564,11 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
                 if (shiftingVelocity > 0f
                         && SystemClock.uptimeMillis() - timeFlingStart < 10000) {
                     // Log.i(TAG, "  fly pixels x=" + shiftingPixelX + " y=" + shiftingPixelY);
-                    AnalyzerGraphic graphView = analyzerViews.graphView;
+                    /*AnalyzerGraphic graphView = analyzerViews.graphView;
                     graphView.setXShift(graphView.getXShift() - shiftingComponentX*shiftingPixel / graphView.getCanvasWidth() / graphView.getXZoom());
                     graphView.setYShift(graphView.getYShift() - shiftingComponentY*shiftingPixel / graphView.getCanvasHeight() / graphView.getYZoom());
                     // Am I need to use runOnUiThread() ?
-                    analyzerViews.invalidateGraphView();
+                    analyzerViews.invalidateGraphView();*/
                     flyingMoveHandler.postDelayed(flyingMoveRunnable, (int)(1000*flyDt));
                 }
             }
@@ -581,7 +585,7 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
         //st.performClick();
     }
 
-    @Override
+    /*@Override
     public boolean onTouchEvent(MotionEvent event) {
         if (isInGraphView(event.getX(0), event.getY(0))) {
             this.mDetector.onTouchEvent(event);
@@ -605,12 +609,12 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
             }
         }
         return super.onTouchEvent(event);
-    }
+    }*/
 
     /**
      *  Manage cursor for measurement
      */
-    private void measureEvent(MotionEvent event) {
+    /*private void measureEvent(MotionEvent event) {
         switch (event.getPointerCount()) {
             case 1:
                 analyzerViews.graphView.setCursor(event.getX(), event.getY());
@@ -621,7 +625,7 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
                     switchMeasureAndScaleMode();
                 }
         }
-    }
+    }*/
 
     /**
      *  Manage scroll and zoom
@@ -632,70 +636,70 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
     private double x0, y0;
     private int[] windowLocation = new int[2];
 
-    private void scaleEvent(MotionEvent event) {
-        if (event.getAction() != MotionEvent.ACTION_MOVE) {
-            xShift0 = INIT;
-            yShift0 = INIT;
-            isPinching = false;
-            // Log.i(TAG, "scaleEvent(): Skip event " + event.getAction());
-            return;
-        }
-        // Log.i(TAG, "scaleEvent(): switch " + event.getAction());
-        AnalyzerGraphic graphView = analyzerViews.graphView;
-        switch (event.getPointerCount()) {
-            case 2 :
-                if (isPinching)  {
-                    graphView.setShiftScale(event.getX(0), event.getY(0), event.getX(1), event.getY(1));
-                } else {
-                    graphView.setShiftScaleBegin(event.getX(0), event.getY(0), event.getX(1), event.getY(1));
-                }
-                isPinching = true;
-                break;
-            case 1:
-                float x = event.getX(0);
-                float y = event.getY(0);
-                graphView.getLocationInWindow(windowLocation);
-                // Log.i(TAG, "scaleEvent(): xy=" + x + " " + y + "  wc = " + wc[0] + " " + wc[1]);
-                if (isPinching || xShift0 == INIT) {
-                    xShift0 = graphView.getXShift();
-                    x0 = x;
-                    yShift0 = graphView.getYShift();
-                    y0 = y;
-                } else {
-                    // when close to the axis, scroll that axis only
-                    if (x0 < windowLocation[0] + 50) {
-                        graphView.setYShift(yShift0 + (y0 - y) / graphView.getCanvasHeight() / graphView.getYZoom());
-                    } else if (y0 < windowLocation[1] + 50) {
-                        graphView.setXShift(xShift0 + (x0 - x) / graphView.getCanvasWidth() / graphView.getXZoom());
-                    } else {
-                        graphView.setXShift(xShift0 + (x0 - x) / graphView.getCanvasWidth() / graphView.getXZoom());
-                        graphView.setYShift(yShift0 + (y0 - y) / graphView.getCanvasHeight() / graphView.getYZoom());
-                    }
-                }
-                isPinching = false;
-                break;
-            default:
-                Log.i(TAG, "Invalid touch count");
-                break;
-        }
-    }
+//    private void scaleEvent(MotionEvent event) {
+//        if (event.getAction() != MotionEvent.ACTION_MOVE) {
+//            xShift0 = INIT;
+//            yShift0 = INIT;
+//            isPinching = false;
+//            // Log.i(TAG, "scaleEvent(): Skip event " + event.getAction());
+//            return;
+//        }
+//        // Log.i(TAG, "scaleEvent(): switch " + event.getAction());
+//        AnalyzerGraphic graphView = analyzerViews.graphView;
+//        switch (event.getPointerCount()) {
+//            case 2 :
+//                if (isPinching)  {
+//                    graphView.setShiftScale(event.getX(0), event.getY(0), event.getX(1), event.getY(1));
+//                } else {
+//                    graphView.setShiftScaleBegin(event.getX(0), event.getY(0), event.getX(1), event.getY(1));
+//                }
+//                isPinching = true;
+//                break;
+//            case 1:
+//                float x = event.getX(0);
+//                float y = event.getY(0);
+//                graphView.getLocationInWindow(windowLocation);
+//                // Log.i(TAG, "scaleEvent(): xy=" + x + " " + y + "  wc = " + wc[0] + " " + wc[1]);
+//                if (isPinching || xShift0 == INIT) {
+//                    xShift0 = graphView.getXShift();
+//                    x0 = x;
+//                    yShift0 = graphView.getYShift();
+//                    y0 = y;
+//                } else {
+//                    // when close to the axis, scroll that axis only
+//                    if (x0 < windowLocation[0] + 50) {
+//                        graphView.setYShift(yShift0 + (y0 - y) / graphView.getCanvasHeight() / graphView.getYZoom());
+//                    } else if (y0 < windowLocation[1] + 50) {
+//                        graphView.setXShift(xShift0 + (x0 - x) / graphView.getCanvasWidth() / graphView.getXZoom());
+//                    } else {
+//                        graphView.setXShift(xShift0 + (x0 - x) / graphView.getCanvasWidth() / graphView.getXZoom());
+//                        graphView.setYShift(yShift0 + (y0 - y) / graphView.getCanvasHeight() / graphView.getYZoom());
+//                    }
+//                }
+//                isPinching = false;
+//                break;
+//            default:
+//                Log.i(TAG, "Invalid touch count");
+//                break;
+//        }
+//    }
 
-    @Override
-    public boolean onLongClick(View view) {
-        vibrate(300);
-        Log.i(TAG, "long click: " + view.toString());
-        return true;
-    }
+//    @Override
+//    public boolean onLongClick(View view) {
+//        //vibrate(300);
+//        Log.i(TAG, "long click: " + view.toString());
+//        return true;
+//    }
 
     // Responds to layout with android:tag="select"
     // Called from SelectorText.super.performClick()
-    @Override
-    public void onClick(View v) {
-        if (processClick(v)) {
-            restartSampling(analyzerParam);
-        }
-        analyzerViews.invalidateGraphView();
-    }
+//    @Override
+//    public void onClick(View v) {
+//        if (processClick(v)) {
+//            restartSampling(analyzerParam);
+//        }
+//        analyzerViews.invalidateGraphView();
+//    }
 
     private final int MY_PERMISSIONS_REQUEST_RECORD_AUDIO = 1;  // just a number
     private final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 2;
@@ -714,21 +718,22 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
             samplingThread = null;
         }
 
-        if (viewRangeArray != null) {
-            analyzerViews.graphView.setupAxes(analyzerParam);
-            double[] rangeDefault = analyzerViews.graphView.getViewPhysicalRange();
-            Log.i(TAG, "restartSampling(): setViewRange: " + viewRangeArray[0] + " ~ " + viewRangeArray[1]);
-            analyzerViews.graphView.setViewRange(viewRangeArray, rangeDefault);
-            if (! isLockViewRange) viewRangeArray = null;  // do not conserve
-        }
+//        if (viewRangeArray != null) {
+//            analyzerViews.graphView.setupAxes(analyzerParam);
+//            double[] rangeDefault = analyzerViews.graphView.getViewPhysicalRange();
+//            Log.i(TAG, "restartSampling(): setViewRange: " + viewRangeArray[0] + " ~ " + viewRangeArray[1]);
+//            analyzerViews.graphView.setViewRange(viewRangeArray, rangeDefault);
+//            if (! isLockViewRange) viewRangeArray = null;  // do not conserve
+//        }
 
         // Set the view for incoming data
-        graphInit = new Thread(new Runnable() {
-            public void run() {
-                analyzerViews.setupView(_analyzerParam);
-            }
-        });
-        graphInit.start();
+        //TODO: This is how the graph actually gets started.
+//        graphInit = new Thread(new Runnable() {
+//            public void run() {
+//                analyzerViews.setupView(_analyzerParam);
+//            }
+//        });
+//        graphInit.start();
 
         // Check and request permissions
         if (! checkAndRequestPermissions())
@@ -816,7 +821,7 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                ((SelectorText) findViewById(R.id.button_recording)).nextValue();
+                                //((SelectorText) findViewById(R.id.button_recording)).nextValue();
                                 bSaveWav = true;
                                 analyzerViews.enableSaveWavView(bSaveWav);
                             }
@@ -839,69 +844,66 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
      * @return    true if we need to update the graph
      */
 
-    public boolean processClick(View v) {
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        String value;
-        if (v instanceof SelectorText) {
-            value = ((SelectorText) v).getValue();
-        } else {
-            value = ((TextView) v).getText().toString();
-        }
-        switch (v.getId()) {
-            case R.id.button_recording:
-                bSaveWav = true;//value.equals("Rec");//AV
-                //  SelectorText st = (SelectorText) findViewById(R.id.run);
-                //  if (bSaveWav && ! st.getText().toString().equals("stop")) {
-                //    st.nextValue();
-                //    if (samplingThread != null) {
-                //      samplingThread.setPause(true);
-                //    }
-                //  }
-                analyzerViews.enableSaveWavView(bSaveWav);
-                return true;
-            case R.id.run:
-                boolean pause = value.equals("stop");
-                if (samplingThread != null && samplingThread.getPause() != pause) {
-                    samplingThread.setPause(pause);
-                }
-                analyzerViews.graphView.spectrogramPlot.setPause(pause);
-                return false;
-                //case R.id.graph_view_mode:
-                //  isMeasure = !value.equals("scale");
-                //  return false;
-            case R.id.freq_scaling_mode: {
-                Log.d(TAG, "processClick(): freq_scaling_mode = " + value);
-                analyzerViews.graphView.setAxisModeLinear(value);
-                editor.putString("freq_scaling_mode", value);
-                editor.commit();
-                return false;
-            }
-            case R.id.dbA:
-                analyzerParam.isAWeighting = !value.equals("dB");
-                if (samplingThread != null) {
-                    samplingThread.setAWeighting(analyzerParam.isAWeighting);
-                }
-                editor.putBoolean("dbA", analyzerParam.isAWeighting);
-                editor.commit();
-                return false;
-            case R.id.spectrum_spectrogram_mode:
-                if (value.equals("spum")) {
-                    analyzerViews.graphView.switch2Spectrum();
-                } else {
-                    analyzerViews.graphView.switch2Spectrogram();
-                }
-                editor.putBoolean("spectrum_spectrogram_mode", value.equals("spum"));
-                editor.commit();
-                return false;
-            default:
-                return true;
-        }
-    }
+//    public boolean processClick(View v) {
+//        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+//        SharedPreferences.Editor editor = sharedPref.edit();
+//        String value;
+//        if (v instanceof SelectorText) {
+//            value = ((SelectorText) v).getValue();
+//        } else {
+//            value = ((TextView) v).getText().toString();
+//        }
+//        switch (v.getId()) {
+//            case R.id.button_recording:
+//                bSaveWav = true;//value.equals("Rec");//AV
+//                //  SelectorText st = (SelectorText) findViewById(R.id.run);
+//                //  if (bSaveWav && ! st.getText().toString().equals("stop")) {
+//                //    st.nextValue();
+//                //    if (samplingThread != null) {
+//                //      samplingThread.setPause(true);
+//                //    }
+//                //  }
+//                analyzerViews.enableSaveWavView(bSaveWav);
+//                return true;
+//            case R.id.run:
+//                boolean pause = value.equals("stop");
+//                if (samplingThread != null && samplingThread.getPause() != pause) {
+//                    samplingThread.setPause(pause);
+//                }
+//                analyzerViews.graphView.spectrogramPlot.setPause(pause);
+//                return false;
+//                //case R.id.graph_view_mode:
+//                //  isMeasure = !value.equals("scale");
+//                //  return false;
+//            case R.id.freq_scaling_mode: {
+//                Log.d(TAG, "processClick(): freq_scaling_mode = " + value);
+//                analyzerViews.graphView.setAxisModeLinear(value);
+//                editor.putString("freq_scaling_mode", value);
+//                editor.commit();
+//                return false;
+//            }
+//            case R.id.dbA:
+//                analyzerParam.isAWeighting = !value.equals("dB");
+//                if (samplingThread != null) {
+//                    samplingThread.setAWeighting(analyzerParam.isAWeighting);
+//                }
+//                editor.putBoolean("dbA", analyzerParam.isAWeighting);
+//                editor.commit();
+//                return false;
+//            case R.id.spectrum_spectrogram_mode:
+//                if (value.equals("spum")) {
+//                    analyzerViews.graphView.switch2Spectrum();
+//                } else {
+//                    analyzerViews.graphView.switch2Spectrogram();
+//                }
+//                editor.putBoolean("spectrum_spectrogram_mode", value.equals("spum"));
+//                editor.commit();
+//                return false;
+//            default:
+//                return true;
+//        }
+//    }
 
-    private void vibrate(int ms) {
-        //((Vibrator) getSystemService(Context.VIBRATOR_SERVICE)).vibrate(ms);
-    }
 
     /**
      * Visit all subviews of this view group and run command
@@ -938,10 +940,10 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
     /**
      * The graph view size has been determined - update the labels accordingly.
      */
-    @Override
-    public void ready() {
-        // put code here for the moment that graph size just changed
-        Log.v(TAG, "ready()");
-        analyzerViews.invalidateGraphView();
-    }
+//    @Override
+//    public void ready() {
+//        // put code here for the moment that graph size just changed
+//        Log.v(TAG, "ready()");
+//        analyzerViews.invalidateGraphView();
+//    }
 }
