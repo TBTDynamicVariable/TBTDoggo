@@ -24,6 +24,8 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.wowwee.chip_android_sampleproject.R;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collections;

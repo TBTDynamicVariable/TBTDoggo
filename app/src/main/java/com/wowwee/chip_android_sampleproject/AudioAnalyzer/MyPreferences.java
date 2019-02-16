@@ -25,6 +25,8 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.util.Log;
 
+import com.wowwee.chip_android_sampleproject.R;
+
 import java.util.Arrays;
 
 // I was using an old cell phone -- API level 9 (android 2.3.6),
