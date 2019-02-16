@@ -42,6 +42,8 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.wowwee.chip_android_sampleproject.R;
+
 /**
  * Operate the views in the UI here.
  * Should run on UI thread in general.
@@ -50,7 +52,7 @@ import android.widget.Toast;
 class AnalyzerViews {
     final String TAG = "AnalyzerViews";
     private final AnalyzerActivity activity;
-    final AnalyzerGraphic graphView;
+    //final AnalyzerGraphic graphView;
 
     private float DPRatio;
     private float listItemTextSize = 20;        // see R.dimen.button_text_fontsize
@@ -74,7 +76,7 @@ class AnalyzerViews {
 
     AnalyzerViews(AnalyzerActivity _activity) {
         activity = _activity;
-        graphView = (AnalyzerGraphic) activity.findViewById(R.id.plot);
+        //graphView = (AnalyzerGraphic) activity.findViewById(R.id.plot);
 
         Resources res = activity.getResources();
         listItemTextSize      = res.getDimension(R.dimen.button_text_fontsize);
@@ -95,12 +97,15 @@ class AnalyzerViews {
         popupMenuAverage = popupMenuCreate(
                 res.getStringArray(R.array.fft_ave_num), R.id.button_average);
 
-        setTextViewFontSize();
+        //setTextViewFontSize();
     }
 
     // Set text font size of textview_cur and textview_peak
     // according to space left
     //@SuppressWarnings("deprecation")
+
+    //function in charge of text
+    /*
     private void setTextViewFontSize() {
         TextView tv = (TextView) activity.findViewById(R.id.textview_cur);
         // At this point tv.getWidth(), tv.getLineCount() will return 0
@@ -125,9 +130,11 @@ class AnalyzerViews {
         ((TextView) activity.findViewById(R.id.textview_cur)).setTextSize(TypedValue.COMPLEX_UNIT_PX, fs);
         ((TextView) activity.findViewById(R.id.textview_peak)).setTextSize(TypedValue.COMPLEX_UNIT_PX, fs);
     }
+*/
 
     // Prepare the spectrum and spectrogram plot (from scratch or full reset)
     // Should be called before samplingThread starts.
+    /*
     void setupView(AnalyzerParameters analyzerParam) {
         graphView.setupPlot(analyzerParam);
     }
@@ -143,7 +150,7 @@ class AnalyzerViews {
             }
         });
     }
-
+*/
     private double wavSecOld = 0;      // used to reduce frame rate
     void updateRec(double wavSec) {
         if (wavSecOld > wavSec) {
@@ -198,6 +205,8 @@ class AnalyzerViews {
         }
     }
 
+    //looks like this whole function is for display
+    /*
     void showInstructions() {
         TextView tv = new TextView(activity);
         tv.setMovementMethod(LinkMovementMethod.getInstance());
@@ -218,7 +227,9 @@ class AnalyzerViews {
                 .setNegativeButton(R.string.dismiss, null)
                 .create().show();
     }
-
+*/
+    //same deal here
+    /*
     void showPermissionExplanation(int resId) {
         TextView tv = new TextView(activity);
         tv.setMovementMethod(new ScrollingMovementMethod());
@@ -229,7 +240,7 @@ class AnalyzerViews {
                 .setNegativeButton(R.string.dismiss, null)
                 .create().show();
     }
-
+*/
     // Thanks http://stackoverflow.com/questions/37904739/html-fromhtml-deprecated-in-android-n
     @SuppressWarnings("deprecation")
     public static android.text.Spanned fromHtml(String source) {
@@ -445,6 +456,8 @@ class AnalyzerViews {
     private static final int VIEW_MASK_CursorLabel   = 1<<3;
     private static final int VIEW_MASK_RecTimeLable  = 1<<4;
 
+    //function adjust labels
+/*
     private void invalidateGraphView(int viewMask) {
         if (isInvalidating) {
             return ;
@@ -489,7 +502,7 @@ class AnalyzerViews {
         }
         isInvalidating = false;
     }
-
+*/
     void setFpsLimit(double _fpsLimit) {
         fpsLimit = _fpsLimit;
     }
