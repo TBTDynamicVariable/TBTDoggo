@@ -64,13 +64,13 @@ import com.wowwee.chip_android_sampleproject.R;
 
 public class AnalyzerActivity extends Activity          // AnalyzerActivity is directly linked to AnalyzerGraphic.Ready
     implements OnLongClickListener, OnClickListener,
-               OnItemClickListener, AnalyzerGraphic.Ready
+              // OnItemClickListener, AnalyzerGraphic.Ready
 {
     private static final String TAG="AnalyzerActivity:";
 
     AnalyzerViews analyzerViews;                        // Also direct depencency on AnalyzerViews
     SamplingLoop samplingThread = null;
-    private RangeViewDialogC rangeViewDialogC;
+   // private RangeViewDialogC rangeViewDialogC;
     private GestureDetectorCompat mDetector;
 
     private AnalyzerParameters analyzerParam = null;    // Same with params
@@ -94,7 +94,7 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
         Log.i(TAG, " max runtime mem = " + maxMemory + "k");
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+       // setContentView(R.layout.main);
 
         Resources res = getResources();
         analyzerParam = new AnalyzerParameters(res);
@@ -106,9 +106,12 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
 
         analyzerViews = new AnalyzerViews(this);
 
+        //"graphView" doesn't exist anymore (from analyzer graphics in analyzer views
+
         // travel Views, and attach ClickListener to the views that contain android:tag="select"
-        visit((ViewGroup) analyzerViews.graphView.getRootView(), new Visit() {
-          @Override
+        //visit((ViewGroup) analyzerViews.graphView.getRootView(), new Visit() {
+        /* got rid of this section bc "view" is gone. will see what it affects down the road
+        @Override
           public void exec(View view) {
             view.setOnLongClickListener(AnalyzerActivity.this);
             view.setOnClickListener(AnalyzerActivity.this);
@@ -116,9 +119,9 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
           }
         }, "select");
         // P sure this is what actually turns the objects into buttons? Which is, like super cool?
+*/
 
-
-        rangeViewDialogC = new RangeViewDialogC(this, analyzerViews.graphView);
+       // rangeViewDialogC = new RangeViewDialogC(this, analyzerViews.graphView);
 
         mDetector = new GestureDetectorCompat(this, new AnalyzerGestureListener());
     }
@@ -134,7 +137,7 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
         super.onResume();
 
         LoadPreferences();
-        analyzerViews.graphView.setReady(this);  // TODO: move this earlier?
+       // analyzerViews.graphView.setReady(this);  // TODO: move this earlier?
         //analyzerViews.enableSaveWavView(bSaveWav);
 
         // Used to prevent extra calling to restartSampling() (e.g. in LoadPreferences())
