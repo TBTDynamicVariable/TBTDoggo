@@ -252,7 +252,7 @@ class AnalyzerViews {
             return Html.fromHtml(source);
         }
     }
-
+/*
     void enableSaveWavView(boolean bSaveWav) {
         //if (bSaveWav) {
             ((TextView) activity.findViewById(R.id.textview_rec)).setHeight((int)(19*DPRatio));
@@ -260,6 +260,7 @@ class AnalyzerViews {
         //    ((TextView) activity.findViewById(R.id.textview_rec)).setHeight((int)(0*DPRatio));
         //}
     }
+    */
 /*
     @SuppressWarnings("deprecation")
     void showPopupMenu(View view) {
