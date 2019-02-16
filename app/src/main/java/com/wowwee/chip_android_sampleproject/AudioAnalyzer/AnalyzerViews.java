@@ -260,7 +260,7 @@ class AnalyzerViews {
         //    ((TextView) activity.findViewById(R.id.textview_rec)).setHeight((int)(0*DPRatio));
         //}
     }
-
+/*
     @SuppressWarnings("deprecation")
     void showPopupMenu(View view) {
         // popup menu position
@@ -288,6 +288,7 @@ class AnalyzerViews {
                 break;
         }
     }
+    */
 /*
     // Maybe put this PopupWindow into a class
     private PopupWindow popupMenuCreate(String[] popUpContents, int resId) {
@@ -387,7 +388,7 @@ class AnalyzerViews {
             }
         };
     }
-
+/*
     private void refreshCursorLabel() {
         //double f1 = graphView.getCursorFreq();
 
@@ -401,6 +402,7 @@ class AnalyzerViews {
         SBNumFormat.fillInNumFixedWidth(textCur, graphView.getCursorDB(), 3, 1);
         textCur.append("dB");
         */
+/*
         textCur.getChars(0, Math.min(textCur.length(), textCurChar.length), textCurChar, 0);
         ((TextView) activity.findViewById(R.id.textview_cur)).setText(textCurChar, 0, Math.min(textCur.length(), textCurChar.length));
     }
@@ -443,7 +445,7 @@ class AnalyzerViews {
         ((TextView) activity.findViewById(R.id.textview_rec))
                 .setText(textRecChar, 0, Math.min(textRec.length(), textRecChar.length));
     }
-
+*/
     private long timeToUpdate = SystemClock.uptimeMillis();
     private volatile boolean isInvalidating = false;
 
