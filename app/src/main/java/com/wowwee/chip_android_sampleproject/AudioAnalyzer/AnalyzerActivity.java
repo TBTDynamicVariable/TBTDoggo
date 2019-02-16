@@ -491,7 +491,7 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
     }*/
 
     // Button processing
-   // public void showPopupMenu(View view) {
+    //public void showPopupMenu(View view) {
         //analyzerViews.showPopupMenu(view);
     }
 
