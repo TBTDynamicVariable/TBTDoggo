@@ -125,5 +125,8 @@
     <orderEntry type="library" exported="" name="Gradle: android.arch.lifecycle:common:1.0.3@jar" level="project" />
     <orderEntry type="module" module-name="FFTLibrary" exported="" />
     <orderEntry type="module" module-name="FFTLibrary" exported="" />
+    <orderEntry type="module" module-name="FFTLibrary" exported="" />
+    <orderEntry type="module" module-name="FFTLibrary" exported="" />
+    <orderEntry type="module" module-name="FFTLibrary" exported="" />
   </component>
 </module>
