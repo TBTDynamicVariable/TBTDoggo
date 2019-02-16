@@ -1,4 +1,4 @@
-/*
+
 package com.wowwee.chip_android_sampleproject.fragment;
 
 import android.app.AlertDialog;
@@ -28,7 +28,7 @@ import java.util.Calendar;
  * This is a test for pushing and patching
  * Created by davidchan on 22/3/2017.
  */
-/*
+
 public class AlarmFragment extends ChipBaseFragment {
 
     Handler handler;

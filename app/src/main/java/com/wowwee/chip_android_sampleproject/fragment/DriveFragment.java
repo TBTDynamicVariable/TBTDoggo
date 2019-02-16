@@ -1,4 +1,4 @@
-/*
+
 package com.wowwee.chip_android_sampleproject.fragment;
 
 import android.os.Bundle;
@@ -18,7 +18,7 @@ import com.wowwee.chip_android_sampleproject.utils.FragmentHelper;
 /**
  * Created by davidchan on 22/3/2017.
  */
-/*
+
 public class DriveFragment extends Fragment {
 
     @Override
