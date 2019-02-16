@@ -64,14 +64,14 @@ public class InfoRecActivity extends Activity {
 		}
 	}
 
-	@Override
+	/*@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.info_rec, menu);
 		return true;
-	}
-
-	@Override
+	}*/
+//JK comment this out
+	/*@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		final TextView tv = (TextView) findViewById(R.id.info_rec_tv);
 		switch (item.getItemId()) {
@@ -100,7 +100,7 @@ public class InfoRecActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
+*/ //JK comment
 	@Override
 	protected void onResume() {
 		super.onResume();
