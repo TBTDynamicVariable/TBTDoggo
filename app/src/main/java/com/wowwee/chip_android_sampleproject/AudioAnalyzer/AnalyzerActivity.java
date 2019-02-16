@@ -764,7 +764,7 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
             if (ActivityCompat.shouldShowRequestPermissionRationale(AnalyzerActivity.this, Manifest.permission.RECORD_AUDIO) &&
                     count_permission_explanation < 1) {
                 Log.w(TAG, "  Show explanation here....");
-                analyzerViews.showPermissionExplanation(R.string.permission_explanation_recorder);
+                //analyzerViews.showPermissionExplanation(R.string.permission_explanation_recorder);
                 count_permission_explanation++;
             } else {
                 Log.w(TAG, "  Requesting...");
