@@ -22,6 +22,8 @@ import android.os.Build;
 import android.os.SystemClock;
 import android.util.Log;
 
+import com.wowwee.chip_android_sampleproject.R;
+
 import java.util.Arrays;
 
 /**
@@ -70,7 +72,7 @@ class SamplingLoop extends Thread {
         activity = _activity;
         analyzerParam = _analyzerParam;
 
-        isPaused = ((SelectorText) activity.findViewById(R.id.run)).getValue().equals("stop");
+        //isPaused = ((SelectorText) activity.findViewById(R.id.run)).getValue().equals("stop");
         // Signal sources for testing
         double fq0 = Double.parseDouble(activity.getString(R.string.test_signal_1_freq1));
         double amp0 = Math.pow(10, 1/20.0 * Double.parseDouble(activity.getString(R.string.test_signal_1_db1)));
@@ -311,7 +313,7 @@ class SamplingLoop extends Thread {
                 // Update spectrum or spectrogram
                 final double[] spectrumDB = stft.getSpectrumAmpDB();
                 System.arraycopy(spectrumDB, 0, spectrumDBcopy, 0, spectrumDB.length);
-                activity.analyzerViews.update(spectrumDBcopy);
+               // activity.analyzerViews.update(spectrumDBcopy);
 //              fpsCounter.inc();
 
                 stft.calculatePeak();
