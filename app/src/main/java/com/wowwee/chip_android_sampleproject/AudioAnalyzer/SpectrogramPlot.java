@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/*
 package com.wowwee.chip_android_sampleproject.AudioAnalyzer;
 
 import android.content.Context;
@@ -27,7 +27,7 @@ import android.util.Log;
 /**
  * The spectrogram plot part of AnalyzerGraphic
  */
-
+/*
 class SpectrogramPlot {
     private static final String TAG = "SpectrogramPlot:";
     boolean showFreqAlongX = false;

@@ -18,7 +18,7 @@
  * GUI extensively modified.
  * Add some naive auto refresh rate control logic.
  */
-
+/*
 package com.wowwee.chip_android_sampleproject.AudioAnalyzer;
 
 import android.content.Context;
@@ -42,7 +42,7 @@ import java.io.OutputStream;
 /**
  * Custom view to draw the FFT graph
  */
-
+/*
 public class AnalyzerGraphic extends View {
     private final String TAG = "AnalyzerGraphic:";
     private Context context;
@@ -648,7 +648,7 @@ public class AnalyzerGraphic extends View {
    * Will be called after onPause() or between onCreat() and on onResume()
    * Ref. https://developer.android.com/guide/topics/ui/settings.html#CustomSaveState
    */
-
+/*
     @Override
     protected Parcelable onSaveInstanceState() {
         Log.i(TAG, "onSaveInstanceState(): xShift = " + xShift + "  xZoom = " + xZoom + "  yShift = " + yShift + "  yZoom = " + yZoom);

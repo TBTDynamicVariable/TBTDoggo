@@ -14,7 +14,7 @@
  *
  * @author Stephen Uhler
  */
-
+/*
 package com.wowwee.chip_android_sampleproject.AudioAnalyzer;
 
 import android.annotation.SuppressLint;
@@ -35,7 +35,7 @@ import android.widget.TextView;
  * Text view that toggles through a set of values.
  * @author suhler@google.com (Stephen Uhler)
  */
-
+/*
 public class  SelectorText extends TextView {
   static final String TAG = "SelectorText:";
   private static float DPRatio;
@@ -86,7 +86,7 @@ public class  SelectorText extends TextView {
    * @param start   If true, animate the old value "out", otherwise animate the old value in
    * @param millis  Animation time for this step, ms
    */
-  
+  /*
   private Animation createAnimation(boolean start, int millis) {
     RotateAnimation ra = new RotateAnimation(start?0f:180f, start?180f:360f, getWidth()/2, getHeight()/2);
 //    Log.d("SelectorText", "  createAnimation(): ");
@@ -98,7 +98,7 @@ public class  SelectorText extends TextView {
   /**
    * Compute the value of our "select" indicator.
    */
-  
+  /*
   @Override
   protected void onSizeChanged (int w, int h, int oldw, int oldh) {
     rect.set(2f*DPRatio, h/2 - 5f*DPRatio, 12f*DPRatio, h/2 + 7f*DPRatio);
@@ -108,6 +108,7 @@ public class  SelectorText extends TextView {
   /**
    * Draw the selector, then the selected text.
    */
+  /*
   @Override
   protected void onDraw(Canvas c) {
     super.onDraw(c);
@@ -118,7 +119,7 @@ public class  SelectorText extends TextView {
   /**
    * Initialize our selector.  We could make most of the features customizable via XML.
    */
-  
+  /*
   private void setup(Context context, AttributeSet attrs) {
     DPRatio = getResources().getDisplayMetrics().density;
     r = 3 * DPRatio;

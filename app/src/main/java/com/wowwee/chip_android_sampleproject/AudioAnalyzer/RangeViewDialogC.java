@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/*
 package com.wowwee.chip_android_sampleproject.AudioAnalyzer;
 
 import android.annotation.SuppressLint;
@@ -38,7 +38,7 @@ import java.text.DecimalFormat;
  *
  * Ref. https://www.mkyong.com/android/android-prompt-user-input-dialog-example/
  */
-
+/*
 class RangeViewDialogC {
     private static final String TAG = "RangeViewDialogC:";
     private AlertDialog rangeViewDialog = null;

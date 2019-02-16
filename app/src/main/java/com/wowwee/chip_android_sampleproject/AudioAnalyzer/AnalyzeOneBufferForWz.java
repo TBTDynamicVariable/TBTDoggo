@@ -5,6 +5,7 @@ package com.wowwee.chip_android_sampleproject.AudioAnalyzer;
  */
 //test change
     // Second comment
+    /*
 public class AnalyzeOneBufferForWz {
 
 }

@@ -1,3 +1,4 @@
+/*
 package com.wowwee.chip_android_sampleproject.AudioAnalyzer;
 
 import static java.lang.Math.log10;
@@ -11,7 +12,7 @@ import java.util.Arrays;
 /**
  * Plot the raw spectrogram BMP.
  */
-
+/*
 class SpectrogramBMP {
     final static String TAG = "SpectrogramBMP";
 
@@ -547,6 +548,7 @@ class SpectrogramBMP {
                  *   \  fmin  /
                  *   This makes the "pixels"(x) more uniformly map to frequency points in logarithmic scale.
                  */
+/*
                 pixelAbscissa[i] = (pow(maxFreq / minFreq, (double) i / nSegment) * minFreq - minFreq) / (maxFreq - minFreq);
                 pixelAbscissa[i] = Math.floor(pixelAbscissa[i] * bmpWidth);   // align to pixel boundary
                 freqAbscissa[i] = pixelAbscissa[i] / bmpWidth * (maxFreq - minFreq) + minFreq;

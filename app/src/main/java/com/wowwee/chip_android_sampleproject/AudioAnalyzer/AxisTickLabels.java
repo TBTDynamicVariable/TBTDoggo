@@ -1,3 +1,4 @@
+/*
 package com.wowwee.chip_android_sampleproject.AudioAnalyzer;
 
 import android.graphics.Canvas;

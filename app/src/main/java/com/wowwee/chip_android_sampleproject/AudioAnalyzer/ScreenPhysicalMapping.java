@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+/*
 package com.wowwee.chip_android_sampleproject.AudioAnalyzer;
 
 import android.util.Log;
@@ -37,7 +37,7 @@ import static java.lang.Math.log;
 //      |lower value ...    higher value|     physical unit
 //      | shift      ... shift + 1/zoom |     "unit 1" window
 //    | 0 | 1 |      ...             | n-1 |  pixel
-
+/*
 class ScreenPhysicalMapping {
     private final static String TAG = "ScreenPhysicalMapping";
 
