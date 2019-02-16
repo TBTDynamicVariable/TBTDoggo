@@ -491,8 +491,8 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
     }*/
 
     // Button processing
-    public void showPopupMenu(View view) {
-        analyzerViews.showPopupMenu(view);
+   // public void showPopupMenu(View view) {
+        //analyzerViews.showPopupMenu(view);
     }
 
     /**
@@ -823,7 +823,7 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
                             public void run() {
                                 //((SelectorText) findViewById(R.id.button_recording)).nextValue();
                                 bSaveWav = true;
-                                analyzerViews.enableSaveWavView(bSaveWav);
+                                //analyzerViews.enableSaveWavView(bSaveWav);
                             }
                         });
                     } else {
