@@ -36,7 +36,9 @@ public class LearningFragment extends Fragment implements ChipRobot.ChipRobotInt
     Handler handler;
     public TextView testText;
     public Button toMenu;
+    public Button startLearning;
     int myHolder = samplingLoop.holder;
+
 
 
     @Override
@@ -65,6 +67,18 @@ public class LearningFragment extends Fragment implements ChipRobot.ChipRobotInt
             @Override
             public void onClick(View v) {
                 FragmentHelper.switchFragment(getActivity().getSupportFragmentManager(), new MenuFragment(), R.id.view_id_content, false);
+            }
+        });
+
+        startLearning = (Button)view.findViewById(R.id.startLearning);
+        startLearning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                samplingLoop.run();
+                if (myHolder==1){
+                    rewardDog();
+                }
+
             }
         });
 
@@ -125,5 +139,37 @@ public class LearningFragment extends Fragment implements ChipRobot.ChipRobotInt
     @Override
     public void chipDidReceiveBodyconStatus(int i) {
 
+    }
+    public void rewardDog(){
+        if (ChipRobotFinder.getInstance().getChipRobotConnectedList().size() > 0) {
+            ChipRobot robot = (ChipRobot) ChipRobotFinder.getInstance().getChipRobotConnectedList().get(0);
+            //Play animation 5 = dance
+            //Play sound 110 =  demo music 2
+            //Play sound 111 = demo music 3
+
+            Random rand = new Random();
+            int randomValue = rand.nextInt(3);
+            if (randomValue == 0){
+                robot.chipPlayBodycon((byte)(5));
+            }
+            else if (randomValue == 1){
+                ChipCommandValues.kChipSoundFileValue value = ChipCommandValues.kChipSoundFileValue.kChipSoundFile_None;
+                value.setValue(110);
+                robot.chipPlaySound(value);
+            }
+            else {
+                ChipCommandValues.kChipSoundFileValue value = ChipCommandValues.kChipSoundFileValue.kChipSoundFile_None;
+                value.setValue(111);
+                robot.chipPlaySound(value);
+            }
+            try {
+                Thread.sleep(7000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            //Reset dog
+            robot.chipPlayBodycon((byte)(1));
+            robot.chipStopSound();
+        }
     }
 }
