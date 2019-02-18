@@ -1,7 +1,5 @@
-package com.wowwee.chip_android_sampleproject.fragment;
+package com.wowwee.chip_android_sampleproject.AudioAnalyzer;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;

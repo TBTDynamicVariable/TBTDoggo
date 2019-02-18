@@ -1,7 +1,6 @@
-package com.wowwee.chip_android_sampleproject.fragment;
+package com.wowwee.chip_android_sampleproject.AudioAnalyzer;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +15,9 @@ import com.wowwee.chip_android_sampleproject.utils.FragmentHelper;
 
 /**
  * Created by davidchan on 22/3/2017.
- * fsdfdfjdsife
  */
 
-public class PlayingFragment extends Fragment {
-
+public class MenuFragment extends ChipBaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -36,11 +33,12 @@ public class PlayingFragment extends Fragment {
 
         getActivity().getWindow().getDecorView().setSystemUiVisibility(flags);
 
+
         View view = inflater.inflate(R.layout.fragment_menu, container, false);
 
         ListView listView = (ListView)view.findViewById(R.id.menuTable);
-        String[] ledNameArr = {"Back", "Play animation", "Play sound"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, ledNameArr);
+        String[] robotNameArr = {"Interation", "Drive", "Alarm", "Setting", "Learning Session"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, robotNameArr);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -50,19 +48,26 @@ public class PlayingFragment extends Fragment {
                     ChipRobot robot = (ChipRobot)ChipRobotFinder.getInstance().getChipRobotConnectedList().get(0);
                     switch (position) {
                         case 0:
-                            FragmentHelper.switchFragment(getActivity().getSupportFragmentManager(), new MenuFragment(), R.id.view_id_content, false);
+                            FragmentHelper.switchFragment(getActivity().getSupportFragmentManager(), new PlayingFragment(), R.id.view_id_content, false);
                             break;
                         case 1:
-                            FragmentHelper.switchFragment(getActivity().getSupportFragmentManager(), new AnimationFragment(), R.id.view_id_content, false);
+                            FragmentHelper.switchFragment(getActivity().getSupportFragmentManager(), new DriveFragment(), R.id.view_id_content, false);
                             break;
                         case 2:
-                            FragmentHelper.switchFragment(getActivity().getSupportFragmentManager(), new SoundFragment(), R.id.view_id_content, false);
+                            FragmentHelper.switchFragment(getActivity().getSupportFragmentManager(), new AlarmFragment(), R.id.view_id_content, false);
                             break;
+                        case 3:
+                            FragmentHelper.switchFragment(getActivity().getSupportFragmentManager(), new ModuleSettingFragment(), R.id.view_id_content, false);
+                            break;
+                        case 4:
+                            FragmentHelper.switchFragment(getActivity().getSupportFragmentManager(), new LearningFragment(), R.id.view_id_content, false);
                     }
                 }
             }
         });
 
+        ChipRobot robot = (ChipRobot)ChipRobotFinder.getInstance().getChipRobotConnectedList().get(0);
+        robot.setCallbackInterface(this);
         return view;
     }
 }

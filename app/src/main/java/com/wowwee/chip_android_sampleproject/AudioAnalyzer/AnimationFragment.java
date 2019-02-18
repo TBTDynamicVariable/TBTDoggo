@@ -1,8 +1,7 @@
-
-package com.wowwee.chip_android_sampleproject.fragment;
+package com.wowwee.chip_android_sampleproject.AudioAnalyzer;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,10 @@ import com.wowwee.chip_android_sampleproject.utils.FragmentHelper;
  * Created by davidchan on 22/3/2017.
  */
 
-public class DriveFragment extends Fragment {
+public class AnimationFragment extends ChipBaseFragment {
+
+    Handler handler;
+    ListView listView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,9 +40,13 @@ public class DriveFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_menu, container, false);
 
-        ListView listView = (ListView)view.findViewById(R.id.menuTable);
-        String[] ledNameArr = {"Back", "Drive Forward", "Drive Backward", "Drive Left", "Drive Right", "Turn Left", "Turn Right"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, ledNameArr);
+        if (ChipRobotFinder.getInstance().getChipRobotConnectedList().size() > 0) {
+            ChipRobot robot = (ChipRobot) ChipRobotFinder.getInstance().getChipRobotConnectedList().get(0);
+            robot.setCallbackInterface(AnimationFragment.this);
+        }
+        listView = (ListView)view.findViewById(R.id.menuTable);
+        String[] listArr = {"Back", "kChipBodyconReset", "kChipBodyconSit", "kChipBodyconLieDown", "kChipBodyconAllIdleMode", "kChipBodyconDance", "kChipBodyconVRTraining1", "kChipBodyconVRTraining2", "kChipBodyconReset2", "kChipBodyconJump", "kChipBodyconYoga", "kChipBodyconWatchCome", "kChipBodyconWatchFollow", "kChipBodyconWatchFetch", "kChipBodyconBallTracking", "kChipBodyconBallSoccer", "kChipBodyconBase", "kChipBodyconDanceBase", "kChipBodyconStopOrStandFromBase", "kChipBodyconGuardMode", "kChipBodyconFreeRoam", "kChipBodyconFaceDownForControllingChippies"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, listArr);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -48,40 +54,21 @@ public class DriveFragment extends Fragment {
                                     long id) {
                 if (ChipRobotFinder.getInstance().getChipRobotConnectedList().size() > 0) {
                     ChipRobot robot = (ChipRobot)ChipRobotFinder.getInstance().getChipRobotConnectedList().get(0);
-                    float[] driveVector = new float[2];
-                    float[] spinVector = new float[2];
-                    driveVector[0] = 0;
-                    driveVector[1] = 0;
-                    spinVector[0] = 0;
-                    spinVector[1] = 0;
                     switch (position) {
                         case 0:
-                            FragmentHelper.switchFragment(getActivity().getSupportFragmentManager(), new MenuFragment(), R.id.view_id_content, false);
+                            FragmentHelper.switchFragment(getActivity().getSupportFragmentManager(), new PlayingFragment(), R.id.view_id_content, false);
                             break;
-                        case 1:
-                            driveVector[1] = 1;
-                            break;
-                        case 2:
-                            driveVector[1] = -1;
-                            break;
-                        case 3:
-                            driveVector[0] = 1;
-                            break;
-                        case 4:
-                            driveVector[0] = -1;
-                            break;
-                        case 5:
-                            spinVector[0] = 1;
-                            break;
-                        case 6:
-                            spinVector[0] = -1;
+                        default:
+                            robot.chipPlayBodycon((byte)(position));
                             break;
                     }
-                    robot.chipDrive(driveVector, spinVector);
                 }
             }
         });
 
+        handler = new Handler();
+
         return view;
     }
+
 }

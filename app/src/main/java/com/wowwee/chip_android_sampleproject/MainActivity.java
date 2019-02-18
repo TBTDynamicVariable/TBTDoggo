@@ -8,7 +8,7 @@ import android.view.WindowManager;
 import com.wowwee.bluetoothrobotcontrollib.BluetoothRobot;
 import com.wowwee.bluetoothrobotcontrollib.chip.ChipRobot;
 import com.wowwee.bluetoothrobotcontrollib.chip.ChipRobotFinder;
-import com.wowwee.chip_android_sampleproject.fragment.ConnectFragment;
+import com.wowwee.chip_android_sampleproject.AudioAnalyzer.ConnectFragment;
 import com.wowwee.chip_android_sampleproject.utils.FragmentHelper;
 
 import java.util.List;

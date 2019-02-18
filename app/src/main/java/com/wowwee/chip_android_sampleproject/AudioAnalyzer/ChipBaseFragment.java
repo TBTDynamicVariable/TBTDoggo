@@ -1,4 +1,4 @@
-package com.wowwee.chip_android_sampleproject.fragment;
+package com.wowwee.chip_android_sampleproject.AudioAnalyzer;
 
 import android.support.v4.app.Fragment;
 

@@ -40,7 +40,7 @@ import java.util.Arrays;
  *   https://developer.android.com/ndk/guides/audio/aaudio/aaudio.html
  */
 
-public class SamplingLoop extends Thread {
+   class SamplingLoop extends Thread {
     private final String TAG = "SamplingLoop";
     private volatile boolean isRunning = true;
     private volatile boolean isPaused = false;
