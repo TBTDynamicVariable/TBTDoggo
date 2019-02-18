@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: :bluetoothRobotControlLib-release:@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bluetoothRobotControlLib-release.aar/6f24f5d8946750fc9270c13bf9fe8401/jars/libs/nrf-logger-v2.0.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bluetoothRobotControlLib-release.aar/6f24f5d8946750fc9270c13bf9fe8401/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bluetoothRobotControlLib-release.aar/6f24f5d8946750fc9270c13bf9fe8401/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bluetoothRobotControlLib-release.aar/6f24f5d8946750fc9270c13bf9fe8401/jars/libs/gson-2.2.4.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bluetoothRobotControlLib-release.aar/6f24f5d8946750fc9270c13bf9fe8401/jars/libs/FlurryAnalytics-6.1.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bluetoothRobotControlLib-release.aar/a846065de4e058a36cd62b67fa94b101/jars/libs/gson-2.2.4.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bluetoothRobotControlLib-release.aar/a846065de4e058a36cd62b67fa94b101/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bluetoothRobotControlLib-release.aar/a846065de4e058a36cd62b67fa94b101/jars/libs/FlurryAnalytics-6.1.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bluetoothRobotControlLib-release.aar/a846065de4e058a36cd62b67fa94b101/jars/libs/nrf-logger-v2.0.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/bluetoothRobotControlLib-release.aar/a846065de4e058a36cd62b67fa94b101/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
