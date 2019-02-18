@@ -47,6 +47,8 @@ class SamplingLoop extends Thread {
     private STFT stft;   // use with care
     private final AnalyzerParameters analyzerParam;
 
+    int holder=0; //used in order to be referenced in our learning session
+
     private SineGenerator sineGen1;
     private SineGenerator sineGen2;
     private double[] spectrumDBcopy;   // XXX, transfers data from SamplingLoop to AnalyzerGraphic
@@ -383,6 +385,7 @@ class SamplingLoop extends Thread {
                 //8. Find the beginning of the vocalization as the fist buffer that crossed the threshold - this approach is NOT USED. We simply always grabe 600ms before the data chunk with vocalization
                 if(bC=="a" || bC=="t")
                 {//this buffer is definitely part of a vocalization => wait for DATACHUNKS_TOSAVE_AFTERDETECTION buffers (1sec), then dump the tempAudioSample into a file
+                    holder=1;
                     if(nDataChunksToWait==0){ nDataChunksToWait = DATACHUNKS_TOSAVE_AFTERDETECTION; Log.i(TAG, "I have detected a word. I will wait for 1sec (DATACHUNKS_TOSAVE_AFTERDETECTION) and save a wav file");}//this is the marker for vocalization. It is also a counter of buffers to wait
                     else{ Log.i(TAG, "I have detected a vocalization in this data chink, but I am saving this data chink as part of a previous word and therefore I will NOT restart buffering.");}
                     /*classIndicator.insert(0,"w");//this buffer is part of vocalization //report each data chunk classification with classIndicator that will look like this: wwwww~~~~~mmfee~wwwww
