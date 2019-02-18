@@ -38,7 +38,7 @@ public class MenuFragment extends ChipBaseFragment {
         View view = inflater.inflate(R.layout.fragment_menu, container, false);
 
         ListView listView = (ListView)view.findViewById(R.id.menuTable);
-        String[] robotNameArr = {"Interation", "Drive", "Alarm", "Setting"};
+        String[] robotNameArr = {"Interation", "Drive", "Alarm", "Setting", "Learning session"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, robotNameArr);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -60,6 +60,8 @@ public class MenuFragment extends ChipBaseFragment {
                         case 3:
                             FragmentHelper.switchFragment(getActivity().getSupportFragmentManager(), new ModuleSettingFragment(), R.id.view_id_content, false);
                             break;
+                        case 4:
+                            FragmentHelper.switchFragment(getActivity().getSupportFragmentManager(), new LearningFragment(), R.id.view_id_content, false);
                     }
                 }
             }

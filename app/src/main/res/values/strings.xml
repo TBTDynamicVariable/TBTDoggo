@@ -218,5 +218,7 @@
     <string name="preference_spectrogramLogPlotMethod_1">Replot spectrogram only while zooming (Saves battery)</string>
 
     <string name="preference_spectrogramLogPlotMethod_2">Log plot: Replot on zoom</string>
+    <string name="textview">TextView</string>
+    <string name="back_to_menu">Back to Menu</string>
 
 </resources>
