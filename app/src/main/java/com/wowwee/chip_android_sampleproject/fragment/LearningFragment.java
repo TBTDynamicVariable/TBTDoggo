@@ -20,6 +20,8 @@ import android.widget.Button;
 
 import com.wowwee.bluetoothrobotcontrollib.chip.ChipRobot;
 import com.wowwee.bluetoothrobotcontrollib.chip.ChipRobotFinder;
+import com.wowwee.chip_android_sampleproject.AudioAnalyzer.AnalyzerActivity;
+import com.wowwee.chip_android_sampleproject.AudioAnalyzer.SamplingLoop;
 import com.wowwee.chip_android_sampleproject.R;
 import com.wowwee.chip_android_sampleproject.utils.FragmentHelper;
 
@@ -27,6 +29,7 @@ import java.util.Calendar;
 
 public class LearningFragment extends Fragment implements ChipRobot.ChipRobotInterface {
 
+    SamplingLoop samplingLoop = null;
     Handler handler;
     public TextView testText;
     public Button toMenu;
