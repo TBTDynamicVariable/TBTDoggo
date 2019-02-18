@@ -47,7 +47,7 @@ public class SamplingLoop extends Thread {
     private STFT stft;   // use with care
     private final AnalyzerParameters analyzerParam;
 
-    int holder=0; //used in order to be referenced in our learning session
+    public int holder=0; //used in order to be referenced in our learning session
 
     private SineGenerator sineGen1;
     private SineGenerator sineGen2;
