@@ -21,7 +21,8 @@ import java.util.Random;
 
 public class LearningFragment extends Fragment /*implements ChipRobot.ChipRobotInterface */{
 
-
+    SamplingLoop samplingLoop;
+    public final int myHolder = samplingLoop.holder;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,8 +32,6 @@ public class LearningFragment extends Fragment /*implements ChipRobot.ChipRobotI
         public TextView testText;
         public Button toMenu;
         public Button startLearning;*/
-        private final SamplingLoop samplingLoop;
-        final int myHolder = samplingLoop.holder;
         if (container == null)
             return null;
 

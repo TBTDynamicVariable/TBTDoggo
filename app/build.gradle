@@ -7,7 +7,6 @@ repositories {
 }
 android {
     compileSdkVersion 27
-    buildToolsVersion '28.0.2'
     defaultConfig {
         applicationId "com.wowwee.coji_android_sampleproject"
         minSdkVersion 18
