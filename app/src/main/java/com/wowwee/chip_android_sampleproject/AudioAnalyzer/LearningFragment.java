@@ -51,7 +51,7 @@ public class LearningFragment extends Fragment /*implements ChipRobot.ChipRobotI
         View view = inflater.inflate(R.layout.fragment_menu, container, false);
 
         ListView listView = (ListView)view.findViewById(R.id.menuTable);
-        String[] robotNameArr = {"Back", "Start"};
+        String[] robotNameArr = {"Back", "Start","Stop"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, robotNameArr);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -63,6 +63,7 @@ public class LearningFragment extends Fragment /*implements ChipRobot.ChipRobotI
                     ChipRobot robot = (ChipRobot) ChipRobotFinder.getInstance().getChipRobotConnectedList().get(0);
 
                    int start=0;
+                   int stop=0;
                     switch (position) {
                         case 0:
                             FragmentHelper.switchFragment(getActivity().getSupportFragmentManager(), new MenuFragment(), R.id.view_id_content, false);
@@ -70,15 +71,19 @@ public class LearningFragment extends Fragment /*implements ChipRobot.ChipRobotI
                         case 1:
                             start=1;
                             break;
+                        case 2:
+                            stop=1;
 
                     }
                     if(start==1) {
+                        samplingLoop.run();
                         if (myHolder == 1) {
                             rewardDog();
                         }
                     }
-                        }
-                }});
+                    if(stop==1) {
+                       samplingLoop.finish(); }
+                }}});
 
 
                 return view;
