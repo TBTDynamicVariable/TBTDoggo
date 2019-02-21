@@ -25,7 +25,7 @@ import com.wowwee.chip_android_sampleproject.R;
  * Basic properties of Analyzer.
  */
 
-class AnalyzerParameters {
+public class AnalyzerParameters {
     final int RECORDER_AGC_OFF = MediaRecorder.AudioSource.VOICE_RECOGNITION;
     int audioSourceId = RECORDER_AGC_OFF;
     int sampleRate = 16000;
