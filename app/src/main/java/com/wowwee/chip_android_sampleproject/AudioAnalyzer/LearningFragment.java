@@ -23,6 +23,7 @@ import java.util.Random;
 
 public class LearningFragment extends Fragment /*implements ChipRobot.ChipRobotInterface */{
 
+    SamplingLoop sampleLoop;
 
 
 
@@ -163,7 +164,7 @@ public class LearningFragment extends Fragment /*implements ChipRobot.ChipRobotI
                     int randomValue = rand.nextInt(3);
                     if (randomValue == 0) {
                         robot.chipPlayBodycon((byte) (5));
-                    } else if (randomValue == 1) {
+                    } /*else if (randomValue == 1) {
                         ChipCommandValues.kChipSoundFileValue value = ChipCommandValues.kChipSoundFileValue.kChipSoundFile_None;
                         value.setValue(110);
                         robot.chipPlaySound(value);
@@ -172,6 +173,7 @@ public class LearningFragment extends Fragment /*implements ChipRobot.ChipRobotI
                         value.setValue(111);
                         robot.chipPlaySound(value);
                     }
+                    */
                     try {
                         Thread.sleep(7000);
                     } catch (InterruptedException e) {
