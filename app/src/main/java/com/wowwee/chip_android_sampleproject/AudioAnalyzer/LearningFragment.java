@@ -1,5 +1,6 @@
 package com.wowwee.chip_android_sampleproject.AudioAnalyzer;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -22,7 +23,7 @@ import java.util.Random;
 
 public class LearningFragment extends Fragment /*implements ChipRobot.ChipRobotInterface */{
 
-    SamplingLoop samplingLoop = null;
+
 
 
 
@@ -78,14 +79,17 @@ public class LearningFragment extends Fragment /*implements ChipRobot.ChipRobotI
                             start=0;
 
                     }
+
+
+
                    while(start==1) {
-                        samplingLoop.run();
-                        if (samplingLoop.holder == 1) {
+                        /*samplingLoop.start();
+                        if (samplingLoop.holder == 1) */{
                             rewardDog();
                         }
                     }
                     while(stop==1) {
-                       samplingLoop.finish(); }
+                       /*samplingLoop.finish(); */}
                 }}});
 
 

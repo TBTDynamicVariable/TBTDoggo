@@ -155,11 +155,11 @@ import java.util.Arrays;
         AudioRecord record;
 
         long tStart = SystemClock.uptimeMillis();
-        try {
+        /*try {
             activity.graphInit.join();  // TODO: Seems not working as intended....
         } catch (InterruptedException e) {
             Log.w(TAG, "run(): activity.graphInit.join() failed.");
-        }
+        }*/
         long tEnd = SystemClock.uptimeMillis();
         if (tEnd - tStart < 500) {
             Log.i(TAG, "wait more.." + (500 - (tEnd - tStart)) + " ms");
