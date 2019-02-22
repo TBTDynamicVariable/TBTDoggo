@@ -40,7 +40,7 @@ import java.util.Arrays;
  *   https://developer.android.com/ndk/guides/audio/aaudio/aaudio.html
  */
 
-   class SamplingLoop extends Thread {
+   public class SamplingLoop extends Thread {
     private final String TAG = "SamplingLoop";
     private volatile boolean isRunning = true;
     private volatile boolean isPaused = false;
@@ -420,6 +420,7 @@ import java.util.Arrays;
         Log.i(TAG, "SamplingLoop::Run(): Stopping and releasing recorder.");
         record.stop();
         record.release();
+
     }
 
     void setAWeighting(boolean isAWeighting) {

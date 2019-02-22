@@ -16,13 +16,14 @@ import com.wowwee.chip_android_sampleproject.R;
 import com.wowwee.chip_android_sampleproject.utils.FragmentHelper;
 
 
+
 import java.util.Random;
 
 
 public class LearningFragment extends Fragment /*implements ChipRobot.ChipRobotInterface */{
 
-    public final SamplingLoop samplingLoop;
-    final int myHolder = samplingLoop.holder;
+    SamplingLoop samplingLoop = null;
+
 
 
     @Override
@@ -70,18 +71,20 @@ public class LearningFragment extends Fragment /*implements ChipRobot.ChipRobotI
                             break;
                         case 1:
                             start=1;
+                            stop=0;
                             break;
                         case 2:
                             stop=1;
+                            start=0;
 
                     }
-                    if(start==1) {
+                   while(start==1) {
                         samplingLoop.run();
-                        if (myHolder == 1) {
+                        if (samplingLoop.holder == 1) {
                             rewardDog();
                         }
                     }
-                    if(stop==1) {
+                    while(stop==1) {
                        samplingLoop.finish(); }
                 }}});
 
@@ -175,6 +178,8 @@ public class LearningFragment extends Fragment /*implements ChipRobot.ChipRobotI
                     robot.chipStopSound();
                 }
             }
+
+
 
     }
 
