@@ -71,7 +71,7 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
     AnalyzerViews analyzerViews;                        // Also direct depencency on AnalyzerViews
     SamplingLoop samplingThread = null;
    // private RangeViewDialogC rangeViewDialogC;
-    private GestureDetectorCompat mDetector;
+    //private GestureDetectorCompat mDetector;
 
     private AnalyzerParameters analyzerParam = null;    // Same with params
 
@@ -123,7 +123,7 @@ public class AnalyzerActivity extends Activity          // AnalyzerActivity is d
 
        // rangeViewDialogC = new RangeViewDialogC(this, analyzerViews.graphView);
 
-        mDetector = new GestureDetectorCompat(this, new AnalyzerGestureListener());
+        //mDetector = new GestureDetectorCompat(this, new AnalyzerGestureListener());
     }
 
     /**

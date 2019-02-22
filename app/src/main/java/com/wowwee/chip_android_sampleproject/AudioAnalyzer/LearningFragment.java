@@ -23,7 +23,11 @@ import java.util.Random;
 
 public class LearningFragment extends Fragment /*implements ChipRobot.ChipRobotInterface */{
 
-    SamplingLoop sampleLoop;
+
+
+    public SamplingLoop sampleLoop;
+    private AnalyzerParameters analyzerparam = null;
+    public AnalyzerActivity analyzerActivity;
 
 
 
@@ -53,6 +57,9 @@ public class LearningFragment extends Fragment /*implements ChipRobot.ChipRobotI
 
         View view = inflater.inflate(R.layout.fragment_menu, container, false);
 
+        Resources res= getResources();
+        analyzerparam = new AnalyzerParameters(res);
+
         ListView listView = (ListView)view.findViewById(R.id.menuTable);
         String[] robotNameArr = {"Back", "Start","Stop"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, robotNameArr);
@@ -78,19 +85,18 @@ public class LearningFragment extends Fragment /*implements ChipRobot.ChipRobotI
                         case 2:
                             stop=1;
                             start=0;
-
+                            break;
                     }
-
-
 
                    while(start==1) {
-                        /*samplingLoop.start();
-                        if (samplingLoop.holder == 1) */{
+                       sampleLoop = new SamplingLoop(analyzerActivity, analyzerparam);
+                        sampleLoop.start();
+                        if(sampleLoop.holder==1)
                             rewardDog();
-                        }
+
                     }
                     while(stop==1) {
-                       /*samplingLoop.finish(); */}
+                       sampleLoop.finish(); }
                 }}});
 
 
@@ -164,7 +170,7 @@ public class LearningFragment extends Fragment /*implements ChipRobot.ChipRobotI
                     int randomValue = rand.nextInt(3);
                     if (randomValue == 0) {
                         robot.chipPlayBodycon((byte) (5));
-                    } /*else if (randomValue == 1) {
+                    } else if (randomValue == 1) {
                         ChipCommandValues.kChipSoundFileValue value = ChipCommandValues.kChipSoundFileValue.kChipSoundFile_None;
                         value.setValue(110);
                         robot.chipPlaySound(value);
@@ -173,7 +179,7 @@ public class LearningFragment extends Fragment /*implements ChipRobot.ChipRobotI
                         value.setValue(111);
                         robot.chipPlaySound(value);
                     }
-                    */
+
                     try {
                         Thread.sleep(7000);
                     } catch (InterruptedException e) {

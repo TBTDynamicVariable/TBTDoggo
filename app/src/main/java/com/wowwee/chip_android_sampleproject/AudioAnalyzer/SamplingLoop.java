@@ -47,7 +47,7 @@ import java.util.Arrays;
     private STFT stft;   // use with care
     private final AnalyzerParameters analyzerParam;
 
-    public int holder=0; //used in order to be referenced in our learning session
+    static int holder=0; //used in order to be referenced in our learning session
 
     private SineGenerator sineGen1;
     private SineGenerator sineGen2;
@@ -76,12 +76,12 @@ import java.util.Arrays;
 
         //isPaused = ((SelectorText) activity.findViewById(R.id.run)).getValue().equals("stop");
         // Signal sources for testing
-        double fq0 = Double.parseDouble(activity.getString(R.string.test_signal_1_freq1));
-        double amp0 = Math.pow(10, 1/20.0 * Double.parseDouble(activity.getString(R.string.test_signal_1_db1)));
-        double fq1 = Double.parseDouble(activity.getString(R.string.test_signal_2_freq1));
-        double amp1 = Math.pow(10, 1/20.0 * Double.parseDouble(activity.getString(R.string.test_signal_2_db1)));
-        double fq2 = Double.parseDouble(activity.getString(R.string.test_signal_2_freq2));
-        double amp2 = Math.pow(10, 1/20.0 * Double.parseDouble(activity.getString(R.string.test_signal_2_db2)));
+        double fq0 = 440;
+        double amp0 = -6;
+        double fq1 = 625;
+        double amp1 = -6;
+        double fq2 = 1875;
+        double amp2 = -12;
         if (analyzerParam.audioSourceId == 1000) {
             sineGen1 = new SineGenerator(fq0, analyzerParam.sampleRate, analyzerParam.SAMPLE_VALUE_MAX * amp0);
         } else {
